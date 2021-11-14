@@ -33,4 +33,6 @@ public class Utilities{
             vista.present(alert, animated: true, completion: nil)
         }
     }
+    
+
 }
