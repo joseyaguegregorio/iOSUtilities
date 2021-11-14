@@ -10,8 +10,6 @@
 
 import Foundation
 import UIKit
-import KeychainAccess
-import WebKit
 import PDFKit
 
 class PdfViewController: UIViewController, URLSessionDelegate, URLSessionDownloadDelegate {
