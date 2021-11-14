@@ -8,7 +8,9 @@
 import Foundation
 
 public class Jose{
-    
+    public init(){
+        
+    }
     public func saludar(){
         print("hola")
     }

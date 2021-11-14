@@ -1,4 +1,4 @@
-struct iOSUtilities {
+public class iOSUtilities{
     public init(){
         
     }
