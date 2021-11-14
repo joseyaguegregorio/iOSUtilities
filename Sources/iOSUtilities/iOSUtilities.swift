@@ -1,7 +1,7 @@
-public struct iOSUtilities {
-    public private(set) var text = "Hello, World!"
-    var nombre = "jose"
-    var apellido = "apellido"
-    public init() {
+struct iOSUtilities {
+    public init(){
+        
     }
+    public var nombre = "jose"
+    public var apellido = "apellido"
 }
