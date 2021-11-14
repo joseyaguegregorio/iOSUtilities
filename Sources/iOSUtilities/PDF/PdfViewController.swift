@@ -64,33 +64,33 @@ class PdfViewController: UIViewController, URLSessionDelegate, URLSessionDownloa
 
 extension PdfViewController{
     
-    public func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-//        print("log: Servidor comprueba autentificacion certificado")
-        
-        switch (challenge.protectionSpace.authenticationMethod) {
-            case NSURLAuthenticationMethodServerTrust:
-                completionHandler(.performDefaultHandling,nil)
-                
-            case NSURLAuthenticationMethodClientCertificate:
-                print("")
-                let keychain = Keychain(service:"com.stv.tasadores")
-                let certificateData = try? keychain.getData("certificate")!  as NSData
-                let password = try? keychain.getString("password")! as String
-                
-                if let identityAndTrust = IdentityHandler.extractIdentity(certData: certificateData! as NSData, certPassword: password!){
-                    let urlCredential:URLCredential = URLCredential(
-                        identity: identityAndTrust.identityRef,
-                        certificates: identityAndTrust.certArray as [AnyObject],
-                        persistence: URLCredential.Persistence.permanent);
-                    completionHandler(.useCredential, urlCredential)
-                }else{
-                    completionHandler(.performDefaultHandling,nil)
-                }
-            default:
-                print("log:WKWebView: willSendRequestForchallenge: DEFAULT HANDLER")
-                completionHandler(.performDefaultHandling,nil)
-        }
-    }
+//    public func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+////        print("log: Servidor comprueba autentificacion certificado")
+//
+//        switch (challenge.protectionSpace.authenticationMethod) {
+//            case NSURLAuthenticationMethodServerTrust:
+//                completionHandler(.performDefaultHandling,nil)
+//
+//            case NSURLAuthenticationMethodClientCertificate:
+//                print("")
+//                let keychain = Keychain(service:"com.stv.tasadores")
+//                let certificateData = try? keychain.getData("certificate")!  as NSData
+//                let password = try? keychain.getString("password")! as String
+//
+//                if let identityAndTrust = IdentityHandler.extractIdentity(certData: certificateData! as NSData, certPassword: password!){
+//                    let urlCredential:URLCredential = URLCredential(
+//                        identity: identityAndTrust.identityRef,
+//                        certificates: identityAndTrust.certArray as [AnyObject],
+//                        persistence: URLCredential.Persistence.permanent);
+//                    completionHandler(.useCredential, urlCredential)
+//                }else{
+//                    completionHandler(.performDefaultHandling,nil)
+//                }
+//            default:
+//                print("log:WKWebView: willSendRequestForchallenge: DEFAULT HANDLER")
+//                completionHandler(.performDefaultHandling,nil)
+//        }
+//    }
     
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
