@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public class UtilitiesContacts{
-    //Necesario tener activos los permisos: Privacy - Contacts Usage Description
+    //Necesario tener activos los permisos: Privacy - Contacts Usage Description or Privacy - Photo Library Usage Description
     public static func loadContactViewController(view: UIViewController, name: String, number: String){
         let vc = ContactosViewController(nibName: "ContactosViewController", bundle: Bundle.module)
         vc.nombre = name
