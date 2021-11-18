@@ -1,3 +1,3 @@
 # iOSUtilities
 
-A description of this package.
+This library provide a tipical functionalities of a basic app. 
